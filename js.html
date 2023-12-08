@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zodiak-year</title>
+  </head>
+  <body>
+    <script>
+      let userInfo = {
+        name: undefined,
+        lastName: undefined,
+        yearOfBirth: undefined,
+        monthOfBirth: undefined,
+        dayOfBirth: undefined,
+        leapYear: undefined,
+        zodiacSign: undefined,
+      };
+
+      userInfo.name = prompt("What is your name?");
+      userInfo.lastName = prompt("What is your last name?");
+
+      let birthYear = +prompt("Year of Birth?");
+      if (isNaN(birthYear)) {
+        alert("Please input numeric values 😉");
+      }
+
+      let birthMonth = +prompt("Month of Birth?");
+      if (isNaN(birthMonth)) {
+        alert("Please input numeric values 😉");
+      }
+
+      let birthDay = +prompt("Day of Birth");
+      if (isNaN(birthDay)) {
+        alert("Please input numeric values 😉");
+      } else {
+        const currentYear = 2022;
+        const age = currentYear - birthYear;
+
+        if (
+          (birthMonth === 1 && birthDay >= 20) ||
+          (birthMonth === 2 && birthDay <= 18)
+        ) {
+          userInfo.zodiacSign = "♒ Aquarius";
+        } else if (
+          (birthMonth === 2 && birthDay >= 19) ||
+          (birthMonth === 3 && birthDay <= 20)
+        ) {
+          userInfo.zodiacSign = "♓ Pisces";
+        } else if (
+          (birthMonth === 3 && birthDay >= 21) ||
+          (birthMonth === 4 && birthDay <= 19)
+        ) {
+          userInfo.zodiacSign = "♈ Aries";
+        } else if (
+          (birthMonth === 4 && birthDay >= 20) ||
+          (birthMonth === 5 && birthDay <= 20)
+        ) {
+          userInfo.zodiacSign = "♉ Taurus";
+        } else if (
+          (birthMonth === 5 && birthDay >= 21) ||
+          (birthMonth === 6 && birthDay <= 20)
+        ) {
+          userInfo.zodiacSign = "♊ Gemini";
+        } else if (
+          (birthMonth === 6 && birthDay >= 21) ||
+          (birthMonth === 7 && birthDay <= 22)
+        ) {
+          userInfo.zodiacSign = "♋ Cancer";
+        } else if (
+          (birthMonth === 7 && birthDay >= 23) ||
+          (birthMonth === 8 && birthDay <= 22)
+        ) {
+          userInfo.zodiacSign = "♌ Leo";
+        } else if (
+          (birthMonth === 8 && birthDay >= 23) ||
+          (birthMonth === 9 && birthDay <= 22)
+        ) {
+          userInfo.zodiacSign = "♍ Virgo";
+        } else if (
+          (birthMonth === 9 && birthDay >= 23) ||
+          (birthMonth === 10 && birthDay <= 22)
+        ) {
+          userInfo.zodiacSign = "♎ Libra";
+        } else if (
+          (birthMonth === 10 && birthDay >= 23) ||
+          (birthMonth === 11 && birthDay <= 21)
+        ) {
+          userInfo.zodiacSign = "♏ Scorpio";
+        } else if (
+          (birthMonth === 11 && birthDay >= 22) ||
+          (birthMonth === 12 && birthDay <= 21)
+        ) {
+          userInfo.zodiacSign = "♐ Sagittarius";
+        } else if (
+          (birthMonth === 12 && birthDay >= 22) ||
+          (birthMonth === 1 && birthDay <= 19)
+        ) {
+          userInfo.zodiacSign = "♑ Capricorn";
+        }
+
+        userInfo.leapYear =
+          birthYear % 400 === 0 ||
+          (birthYear % 100 !== 0 && birthYear % 4 === 0);
+
+        if (userInfo.leapYear) {
+          alert(
+            `User Bio: ${userInfo.name} ${userInfo.lastName}, ${age} роки (Leap year), ${userInfo.zodiacSign};`
+          );
+        } else {
+          alert(
+            `User Bio: ${userInfo.name} ${userInfo.lastName}, ${age} роки, ${userInfo.zodiacSign};`
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
